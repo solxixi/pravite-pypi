@@ -40,7 +40,7 @@
 主要在/etc/httpd/conf的httpd.conf文件中
 
 	<VirtualHost *:80>
-		ServerName pypi.xiaohongshu.com
+		ServerName pypi.xxxx.com
 
 		WSGIDaemonProcess pypi_proxy threads=5
 		WSGIScriptAlias / /home/pypi-proxy/pypi-proxy.wsgi
@@ -62,9 +62,9 @@ pypi服务器的管理
 		red
 
 	[red]
-	username:foo
-	password:bar
-	repository:http://pypi.xiaohongshu.com/pypi/
+	username:xxx
+	password:xxx
+	repository:http://pypi.xxx.com/pypi/
 
 2.上传
 	执行 python setup.py sdist upload -r red 
@@ -72,11 +72,11 @@ pypi服务器的管理
 3.在server端加入private_egg.具体操作如下：
 	cd /home/pypi-proxy/
 	向pypi-proxy.wsgi的private_egg的变量中插入包的名字即可：
-	os.environ['PYPI_PROXY_PRIVATE_EGGS'] = 'lumos,mongoengine,red_cloud_image'
+	os.environ['PYPI_PROXY_PRIVATE_EGGS'] = ''
 
 
 pip的下载
 ---------
 
 类似如下：
-	pip install lumos==1.0.4 -i http://pypi.xiaohongshu.com/simple --trusted-host pypi.xiaohongshu.com
+	pip install lumos==1.0.4 -i http://pypi.xxx.com/simple --trusted-host pypi.xxx.com
